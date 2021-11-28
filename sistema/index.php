@@ -1,6 +1,6 @@
 <?php 
     include_once 'lock.php';
-    include_once '../database/livro.dao.php'; 
+    include_once '../database/game.dao.php'; 
 ?>
 
 <!DOCTYPE html>
@@ -18,6 +18,42 @@
 		<a href="logout.php" class="btn btn-primary btn-sm">Sair do sistema</a>
 	</p>
 
-	
+	<h3>Cadastre um novo jogo:</h3>
+
+	<form action="cadastrar.php" method="post">
+			
+		<p>
+			<label for="titulo">Título: </label><br>
+			<input type="text" name="titulo" required>
+		</p>
+
+		<p>
+			<label for="lancamento">Ano de lançamento:</label><br>
+			<input type="text" name="lancamento" required>
+		</p>
+
+		<p>
+			<label for="produtora">Produtora:</label><br>
+			<input type="text" name="produtora" required>
+		</p>
+
+        <p>
+			<label for="preco">Preço:</label><br>
+			<input type="number" name="preco" required step=0.01>
+		</p>
+
+		<p>
+			<button type="submit" name="cadastrar">Cadastrar</button>
+		</p>
+
+	</form>
+
+	<h2>Livros Cadastrados</h2>
+
+	<?php  
+
+	    echo exibir_livros();
+
+	?>
 </body>
 </html>
