@@ -52,7 +52,7 @@
 
 	<?php  
 
-	    echo exibir_livros();
+	    echo exibir_games();
 
 	?>
 </body>
