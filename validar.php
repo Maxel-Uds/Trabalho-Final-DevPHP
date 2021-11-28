@@ -22,7 +22,7 @@ else
 	}
 	else
 	{
-		header('location:index.php?msg=invalido');
+		header('location:index.php?msg=usuarioInvalido');
 	}
 }
 
