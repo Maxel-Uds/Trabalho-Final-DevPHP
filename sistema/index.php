@@ -1,3 +1,8 @@
+<?php 
+    include_once 'lock.php';
+    include_once '../database/livro.dao.php'; 
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,5 +13,11 @@
 </head>
 <body>
     <h1>Game Store - Sistema Interno</h1>
+
+    <p>
+		<a href="logout.php" class="btn btn-primary btn-sm">Sair do sistema</a>
+	</p>
+
+	
 </body>
 </html>
