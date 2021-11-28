@@ -23,7 +23,7 @@
         </p>
 
         <p>
-            <button type="submit" name="entrar">Login</button>
+            <button type="submit" name="login">Login</button>
         </p>
     </form>
 </body>
