@@ -1,24 +1,24 @@
-<?php include_once 'lock.php';
+<?php 
+include_once 'lock.php';
 include_once '../database/game.dao.php'; 
 
-if (!isset($_GET['id_game']))
-{
-	header('location:index.php?msg=idinvalido');
-}
-else
-{
-	$result = buscar_game($_GET['id_game']);
-
-	if($result == null)
+	if (!isset($_GET['id_game']))
 	{
 		header('location:index.php?msg=idinvalido');
 	}
 	else
 	{
-		$game = mysqli_fetch_assoc($result);
-	}
-}
+		$result = buscar_game($_GET['id_game']);
 
+		if($result == null)
+		{
+			header('location:index.php?msg=idinvalido');
+		}
+		else
+		{
+			$game = mysqli_fetch_assoc($result);
+		}
+	}
 ?>
 <!DOCTYPE html>
 <html>
@@ -26,7 +26,7 @@ else
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="styles.css">
-	<title>Projeto Final - Editar jogo</title>
+	<title>Game Store</title>
 </head>
 <body>
 
@@ -48,7 +48,7 @@ else
 
 			<p>
 				<label class="form-label">Data de lançamento</label><br>
-				<input type="text" name="autor" required value="<?= $game['lancamento'] ?>" class="form-control">
+				<input type="text" name="lancamento" required value="<?= $game['lancamento'] ?>" class="form-control">
 			</p>
 
 			<p>
@@ -62,7 +62,7 @@ else
 			</p>
 
 			<p>
-				<button type="submit" name="salvar">Salvar Alterações</button>
+				<button type="submit" name="salvar">Editar Game</button>
 			</p>
 
 			<input type="hidden" name="id_game" value="<?= $game['id_game'] ?>">

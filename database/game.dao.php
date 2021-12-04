@@ -76,66 +76,67 @@
     }
 
     function link_deletar($id_game)
-{
-	$link = '<a href="deletar.php?id_game='.$id_game.'" 
-	onclick="return confirm(\'Tem certeza que deseja excluir este jogo?\')" class="btn btn-danger">Deletar</a>';
+    {
+        $link = '<a href="deletar.php?id_game='.$id_game.'" 
+        onclick="return confirm(\'Tem certeza que deseja excluir este jogo?\')" class="btn btn-danger">Deletar</a>';
 
-	return $link;
-}
+        return $link;
+    }
 
-function link_editar($id_game)
-{
-	$link = '<a href="editar.php?id_game='.$id_game.'" class="btn btn-warning">Editar</a>';
-	return $link;
-}
+    function link_editar($id_game)
+    {
+        $link = '<a href="editar.php?id_game='.$id_game.'" class="btn btn-warning">Editar</a>';
+        
+        return $link;
+    }
 
 
-function deletar_game($id_game)
-{
-	$conn = conectar();
+    function deletar_game($id_game)
+    {
+        $conn = conectar();
 
-	$sql = "DELETE FROM games_tb WHERE id_game = $id_game";
+        $sql = "DELETE FROM games_tb WHERE id_game = $id_game";
 
-	$result = mysqli_query($conn, $sql);
+        $result = mysqli_query($conn, $sql);
 
-	if (mysqli_affected_rows($conn) > 0)
-	{
-		return true;
-	}
+        if (mysqli_affected_rows($conn) > 0)
+        {
+            return true;
+        }
 
-	return false;
-}
+        return false;
+    }
 
-function buscar_game($id_game)
-{
-	$conn = conectar();
+    function buscar_game($id_game)
+    {
+        $conn = conectar();
 
-	$sql = "SELECT * FROM games_tb WHERE id_game = $id_game";
+        $sql = "SELECT * FROM games_tb WHERE id_game = $id_game";
 
-	$result = mysqli_query($conn, $sql);
+        $result = mysqli_query($conn, $sql);
 
-	if (mysqli_affected_rows($conn) > 0)
-	{
-		return $result;
-	}
+        if (mysqli_affected_rows($conn) > 0)
+        {
+            return $result;
+        }
 
-	return null;
-}
+        return null;
+    }
 
-function editar_game($id_game, $titulo, $lancamento, $produtora, $preco)
-{
-	$conn = conectar();
+    function editar_game($id_game, $titulo, $lancamento, $produtora, $preco)
+    {
+        $conn = conectar();
 
-	$sql = "UPDATE games_tb SET titulo = '$titulo', lancamento = '$lancamento', produtora = '$produtora', preco ='$preco' 
-	WHERE id_game = $id_game";
+        $sql = "UPDATE games_tb SET titulo = '$titulo', lancamento = '$lancamento', produtora = '$produtora', preco ='$preco' 
+        WHERE id_game = $id_game";
 
-	$result = mysqli_query($conn, $sql);
+        $result = mysqli_query($conn, $sql);
 
-	if (mysqli_affected_rows($conn) > 0)
-	{
-		return true;
-	}
+        if (mysqli_affected_rows($conn) > 0)
+        {
+            return true;
+        }
 
-	return false;
-}
+        return false;
+    }
 ?>
